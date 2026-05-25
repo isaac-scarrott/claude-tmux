@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# claude-tmux launcher
+set -e
+
+REPO_DIR="$(cd "$(dirname "$(readlink -f "$0" 2>/dev/null || python3 -c 'import os,sys;print(os.path.realpath(sys.argv[1]))' "$0")")" && pwd)/.."
+REPO_DIR="$(cd "$REPO_DIR" && pwd)"
+
+cd "$REPO_DIR"
+exec bun run src/picker.tsx "$@"

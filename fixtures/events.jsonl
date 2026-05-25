@@ -1,0 +1,12 @@
+{"ts":1779000001000,"pane_id":"%101","session_id":"sess-holibob","cwd":"/Users/isaac/git/holibob","kind":"session-start","source":"startup"}
+{"ts":1779000002000,"pane_id":"%101","session_id":"sess-holibob","cwd":"/Users/isaac/git/holibob","kind":"user-prompt"}
+{"ts":1779000003000,"pane_id":"%101","session_id":"sess-holibob","cwd":"/Users/isaac/git/holibob","kind":"notification","notification_type":"idle_prompt","message":"Approve dropping the legacy partner table?"}
+{"ts":1779000010000,"pane_id":"%102","session_id":"sess-claude-tmux","cwd":"/Users/isaac/git/claude-tmux","kind":"session-start","source":"startup"}
+{"ts":1779000011000,"pane_id":"%102","session_id":"sess-claude-tmux","cwd":"/Users/isaac/git/claude-tmux","kind":"user-prompt"}
+{"ts":1779000012000,"pane_id":"%102","session_id":"sess-claude-tmux","cwd":"/Users/isaac/git/claude-tmux","kind":"pre-tool-use","tool_name":"Bash"}
+{"ts":1779000020000,"pane_id":"%103","session_id":"sess-repdaily","cwd":"/Users/isaac/git/RepDaily","kind":"session-start","source":"startup"}
+{"ts":1779000021000,"pane_id":"%103","session_id":"sess-repdaily","cwd":"/Users/isaac/git/RepDaily","kind":"user-prompt"}
+{"ts":1779000022000,"pane_id":"%103","session_id":"sess-repdaily","cwd":"/Users/isaac/git/RepDaily","kind":"stop-failure","reason":"rate_limit"}
+{"ts":1779000030000,"pane_id":"%104","session_id":"sess-devfiles","cwd":"/Users/isaac/git/dev-files","kind":"session-start","source":"startup"}
+{"ts":1779000031000,"pane_id":"%104","session_id":"sess-devfiles","cwd":"/Users/isaac/git/dev-files","kind":"user-prompt"}
+{"ts":1779000032000,"pane_id":"%104","session_id":"sess-devfiles","cwd":"/Users/isaac/git/dev-files","kind":"stop"}

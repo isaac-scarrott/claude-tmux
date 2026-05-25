@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+REPO_DIR="$(cd "$(dirname "$(readlink -f "$0" 2>/dev/null || python3 -c 'import os,sys;print(os.path.realpath(sys.argv[1]))' "$0")")" && pwd)/.."
+REPO_DIR="$(cd "$REPO_DIR" && pwd)"
+
+exec bun run "$REPO_DIR/src/notify-cli.ts" "$@"

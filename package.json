@@ -1,0 +1,23 @@
+{
+  "name": "claude-tmux",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "cct": "./bin/cct"
+  },
+  "scripts": {
+    "picker": "bun run src/picker.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@opentui/core": "^0.2.15",
+    "@opentui/solid": "^0.2.15",
+    "solid-js": "^1.9.13"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "typescript": "^5.9.3"
+  }
+}

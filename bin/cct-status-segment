@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Fast status-line segment. Counts panes in needs-input state by replaying
+# the event log per-pane (keeping last status), then comparing against live
+# tmux panes. Pure awk, no node/bun cold start.
+set -e
+
+EVENTS="${CLAUDE_TMUX_STATE_DIR:-$HOME/.claude-tmux}/events.jsonl"
+[ -f "$EVENTS" ] || { exit 0; }
+
+# Build pane_id → status, then take pane_ids whose status is needs-input,
+# intersected with currently live tmux panes.
+LIVE_PANES="$(tmux list-panes -a -F '#{pane_id}' 2>/dev/null | tr '\n' ' ')"
+[ -z "$LIVE_PANES" ] && exit 0
+
+NEEDS="$(awk -F '"' '
+{
+    pane=""; kind=""
+    for (i=2; i<NF; i++) {
+        if ($i == "pane_id") pane=$(i+2)
+        if ($i == "kind") kind=$(i+2)
+    }
+    if (pane != "" && kind != "") status[pane] = kind
+}
+END {
+    for (p in status) {
+        s = status[p]
+        if (s == "notification") print p
+    }
+}
+' "$EVENTS")"
+
+[ -z "$NEEDS" ] && exit 0
+
+COUNT=0
+for p in $NEEDS; do
+    case " $LIVE_PANES " in
+        *" $p "*) COUNT=$((COUNT + 1));;
+    esac
+done
+
+[ "$COUNT" -gt 0 ] && printf '!%d' "$COUNT"
+exit 0
